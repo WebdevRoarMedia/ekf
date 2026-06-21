@@ -32,15 +32,15 @@
 
   .branch-head{padding:8px 16px;border-radius:10px;font-size:13px;font-weight:700;text-align:center;white-space:nowrap;border:2.5px solid;position:relative;background:#fffdf9}
 
-  .branch-body{display:flex;flex-direction:column;align-items:flex-start;margin-top:28px;position:relative;padding-left:20px}
-  .main-stack{position:relative;display:flex;flex-direction:column;align-items:flex-start}
+  .branch-body{display:flex;flex-direction:column;align-items:flex-start;margin-top:28px;position:relative;padding-left:0}
+  .main-stack{position:relative;display:flex;flex-direction:column;align-items:flex-start;padding-left:20px}
 
   .page-node{border:1.8px dashed;border-radius:8px;padding:5px 12px;font-size:12px;font-weight:600;margin:6px 0;white-space:nowrap;background:#fffdf9;position:relative}
 
   .section-leaf{font-size:11.5px;font-weight:500;color:rgba(27,42,65,.72);padding:3px 0;margin:2px 0;white-space:nowrap;position:relative;padding-left:18px}
   .section-leaf::before{content:'';position:absolute;left:0;top:50%;width:12px;height:1.5px}
 
-  .sub-branch{margin-top:18px;margin-left:38px;padding-left:0;position:relative;display:flex;flex-direction:column;align-items:flex-start}
+  .sub-branch{margin-top:14px;margin-left:14px;padding-left:0;position:relative;display:flex;flex-direction:column;align-items:flex-start}
 
   .external-note{margin-top:8px;padding:10px 12px;background:rgba(27,42,65,.03);border:1.5px dashed rgba(27,42,65,.22);border-radius:8px;font-size:11px;line-height:1.45;color:rgba(27,42,65,.55);max-width:150px;white-space:normal}
 
@@ -132,20 +132,22 @@
     <div class="branch c-red" data-branch>
       <div class="branch-head" data-head>Home</div>
       <div class="branch-body">
-        <div class="trunk"></div>
-        <div class="page-node">Homepage</div>
-        <div class="section-leaf">Hero</div>
-        <div class="section-leaf">Trust bar / By the numbers</div>
-        <div class="section-leaf">Services overview</div>
-        <div class="section-leaf">Why Evensky / Differentiators</div>
-        <div class="section-leaf">Our story teaser</div>
-        <div class="section-leaf">Team teaser</div>
-        <div class="section-leaf">Insights teaser</div>
-        <div class="section-leaf">Testimonials / Press</div>
-        <div class="section-leaf">Community impact callout</div>
-        <div class="section-leaf">Newsletter signup</div>
-        <div class="section-leaf">Contact / CTA banner</div>
-        <div class="section-leaf">Footer</div>
+        <div class="main-stack">
+          <div class="trunk"></div>
+          <div class="page-node">Homepage</div>
+          <div class="section-leaf">Hero</div>
+          <div class="section-leaf">Trust bar / By the numbers</div>
+          <div class="section-leaf">Services overview</div>
+          <div class="section-leaf">Why Evensky / Differentiators</div>
+          <div class="section-leaf">Our story teaser</div>
+          <div class="section-leaf">Team teaser</div>
+          <div class="section-leaf">Insights teaser</div>
+          <div class="section-leaf">Testimonials / Press</div>
+          <div class="section-leaf">Community impact callout</div>
+          <div class="section-leaf">Newsletter signup</div>
+          <div class="section-leaf">Contact / CTA banner</div>
+          <div class="section-leaf">Footer</div>
+        </div>
       </div>
     </div>
 
@@ -278,12 +280,14 @@
     <div class="branch c-purple" data-branch>
       <div class="branch-head" data-head>Contact</div>
       <div class="branch-body">
-        <div class="trunk"></div>
-        <div class="page-node">Contact Page</div>
-        <div class="section-leaf">Hero</div>
-        <div class="section-leaf">Office selector tabs</div>
-        <div class="section-leaf">Contact form</div>
-        <div class="section-leaf">Trust bar</div>
+        <div class="main-stack">
+          <div class="trunk"></div>
+          <div class="page-node">Contact Page</div>
+          <div class="section-leaf">Hero</div>
+          <div class="section-leaf">Office selector tabs</div>
+          <div class="section-leaf">Contact form</div>
+          <div class="section-leaf">Trust bar</div>
+        </div>
       </div>
     </div>
 
@@ -291,8 +295,10 @@
     <div class="branch c-gray" data-branch>
       <div class="branch-head" data-head>Client Login</div>
       <div class="branch-body">
-        <div class="trunk"></div>
-        <div class="external-note">External portal redirect →<br>No on-site page.<br>Styled link/button only, in nav &amp; footer.</div>
+        <div class="main-stack">
+          <div class="trunk"></div>
+          <div class="external-note">External portal redirect →<br>No on-site page.<br>Styled link/button only, in nav &amp; footer.</div>
+        </div>
       </div>
     </div>
 
