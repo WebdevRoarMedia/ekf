@@ -1,171 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EVK — Page Sections</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#f4f1ea;font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1b2a41}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EVK — Page Sections</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-  .page-skeletons{max-width:1380px;margin:0 auto;padding:60px 32px 88px}
-  .section-tag{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#c79a52}
-  .section-title{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(34px,4.4vw,56px);line-height:1.04;letter-spacing:-.02em;color:#1b2a41;margin:14px 0 0}
-  .legend{display:flex;flex-wrap:wrap;gap:22px;margin:26px 0 34px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(27,42,65,.55)}
-  .legend-item{display:inline-flex;align-items:center;gap:7px}
-  .legend-dot-hub{width:9px;height:9px;border-radius:50%;background:#1b2a41}
-  .legend-dot-template{width:9px;height:9px;border-radius:50%;border:1px dashed rgba(27,42,65,.5)}
-  .legend-dot-b2b{width:9px;height:9px;border-radius:2px;background:#c79a52}
+    body {
+      background: #f4f1ea;
+      font-family: 'Hanken Grotesk', system-ui, sans-serif;
+      color: #1b2a41
+    }
 
-  .group-stack{display:flex;flex-direction:column;gap:54px}
-  .group-block{display:flex;flex-direction:column;gap:22px}
-  .group-header{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding-bottom:18px;border-bottom:1px solid rgba(27,42,65,.12)}
-  .group-kicker{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#c79a52}
-  .group-title{font-family:'Newsreader',serif;font-size:30px;font-weight:400;letter-spacing:-.02em;color:#1b2a41}
-  .group-desc{font-size:13px;line-height:1.55;color:rgba(27,42,65,.58);max-width:52ch}
-  .pages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
-  .page-card{background:#fffdf9;border:1px solid rgba(27,42,65,.12);border-radius:14px;padding:22px 22px 14px;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(27,42,65,.04)}
-  .page-card-header{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
-  .page-num{font-size:12px;font-weight:700;letter-spacing:.04em;color:#c79a52;font-variant-numeric:tabular-nums}
-  .page-tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(27,42,65,.55);padding:3px 9px;border:1px solid rgba(27,42,65,.18);border-radius:20px}
-  .page-b2b{font-size:9px;font-weight:700;letter-spacing:.1em;background:#c79a52;color:#fffdf9;padding:3px 8px;border-radius:20px}
-  .page-name{margin:11px 0 0;font-family:'Newsreader',serif;font-weight:500;font-size:23px;line-height:1.05;letter-spacing:-.01em;color:#1b2a41}
-  .page-branch{margin-top:6px;font-size:12px;font-weight:600;color:rgba(27,42,65,.5)}
-  .page-variants{margin-top:9px;font-family:'Newsreader',serif;font-style:italic;font-size:13px;line-height:1.5;color:rgba(27,42,65,.62)}
-  .page-external{margin-top:13px;padding:14px;background:rgba(27,42,65,.03);border:1px dashed rgba(27,42,65,.24);border-radius:9px;font-size:12.5px;line-height:1.5;color:rgba(27,42,65,.6)}
-  .subpage-list{margin-top:14px;padding-top:14px;border-top:1px solid rgba(27,42,65,.09);display:flex;flex-direction:column;gap:8px}
-  .subpage-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(27,42,65,.45)}
-  .subpage-item{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:#1b2a41}
-  .subpage-item::before{content:'';width:6px;height:6px;border-radius:50%;background:#c79a52;flex:none}
-  .page-sections{margin-top:15px}
-  .page-section-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid rgba(27,42,65,.09)}
-  .section-num{width:15px;flex:none;font-size:10px;font-weight:600;color:rgba(27,42,65,.32);font-variant-numeric:tabular-nums}
-  .dot{width:7px;height:7px;border-radius:50%;background:#c79a52;flex:none}
-  .section-label{font-size:14px;line-height:1.25;font-weight:500;color:#1b2a41}
+    .page-skeletons {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 60px 32px 88px
+    }
 
-  @media(max-width:960px){
-    .pages-grid{grid-template-columns:repeat(2,1fr)}
-  }
-  @media(max-width:600px){
-    .pages-grid{grid-template-columns:1fr}
-  }
-</style>
+    .section-tag {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #c79a52
+    }
+
+    .section-title {
+      font-family: 'Newsreader', serif;
+      font-weight: 400;
+      font-size: clamp(34px, 4.4vw, 56px);
+      line-height: 1.04;
+      letter-spacing: -.02em;
+      color: #1b2a41;
+      margin: 14px 0 0
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin: 26px 0 34px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(27, 42, 65, .55)
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .legend-dot-hub {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #1b2a41
+    }
+
+    .legend-dot-template {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      border: 1px dashed rgba(27, 42, 65, .5)
+    }
+
+    .legend-dot-b2b {
+      width: 9px;
+      height: 9px;
+      border-radius: 2px;
+      background: #c79a52
+    }
+
+    .group-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 54px
+    }
+
+    .group-block {
+      display: flex;
+      flex-direction: column;
+      gap: 22px
+    }
+
+    .group-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(27, 42, 65, .12)
+    }
+
+    .group-kicker {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #c79a52
+    }
+
+    .group-title {
+      font-family: 'Newsreader', serif;
+      font-size: 30px;
+      font-weight: 400;
+      letter-spacing: -.02em;
+      color: #1b2a41;
+      margin-top: 10px;
+    }
+
+    .group-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: rgba(27, 42, 65, .58);
+      max-width: 52ch
+    }
+
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: start
+    }
+
+    .page-card {
+      background: #fffdf9;
+      border: 1px solid rgba(27, 42, 65, .12);
+      border-radius: 14px;
+      padding: 22px 22px 14px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 2px rgba(27, 42, 65, .04)
+    }
+
+    .page-card-header {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap
+    }
+
+    .page-num {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: #c79a52;
+      font-variant-numeric: tabular-nums
+    }
+
+    .page-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(27, 42, 65, .55);
+      padding: 3px 9px;
+      border: 1px solid rgba(27, 42, 65, .18);
+      border-radius: 20px
+    }
+
+    .page-b2b {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      background: #c79a52;
+      color: #fffdf9;
+      padding: 3px 8px;
+      border-radius: 20px
+    }
+
+    .page-name {
+      margin: 11px 0 0;
+      font-family: 'Newsreader', serif;
+      font-weight: 500;
+      font-size: 23px;
+      line-height: 1.05;
+      letter-spacing: -.01em;
+      color: #1b2a41
+    }
+
+    .page-branch {
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(27, 42, 65, .5)
+    }
+
+    .page-variants {
+      margin-top: 9px;
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(27, 42, 65, .62)
+    }
+
+    .page-external {
+      margin-top: 13px;
+      padding: 14px;
+      background: rgba(27, 42, 65, .03);
+      border: 1px dashed rgba(27, 42, 65, .24);
+      border-radius: 9px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: rgba(27, 42, 65, .6)
+    }
+
+    .subpage-list {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(27, 42, 65, .09);
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .subpage-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(27, 42, 65, .45)
+    }
+
+    .subpage-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1b2a41
+    }
+
+    .subpage-item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #c79a52;
+      flex: none
+    }
+
+    .page-sections {
+      margin-top: 15px
+    }
+
+    .page-section-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 0;
+      border-top: 1px solid rgba(27, 42, 65, .09)
+    }
+
+    .section-num {
+      width: 15px;
+      flex: none;
+      font-size: 10px;
+      font-weight: 600;
+      color: rgba(27, 42, 65, .32);
+      font-variant-numeric: tabular-nums
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #c79a52;
+      flex: none
+    }
+
+    .section-label {
+      font-size: 14px;
+      line-height: 1.25;
+      font-weight: 500;
+      color: #1b2a41
+    }
+
+    @media(max-width:960px) {
+      .pages-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(max-width:600px) {
+      .pages-grid {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="page-skeletons">
-  <div class="section-tag">Information Architecture</div>
-  <h2 class="section-title">Page sections</h2>
-  <div class="legend">
-    <span class="legend-item"><span class="legend-dot-hub"></span>Main page / hub</span>
-    <span class="legend-item"><span class="legend-dot-template"></span>Template / repeated structure</span>
-    <span class="legend-item"><span class="legend-dot-b2b"></span>B2B — employer audience</span>
+  <div class="page-skeletons">
+    <div class="section-tag">Information Architecture</div>
+    <h2 class="section-title">Page sections</h2>
+    <div class="legend">
+      <span class="legend-item"><span class="legend-dot-hub"></span>Main page / hub</span>
+      <span class="legend-item"><span class="legend-dot-template"></span>Template / repeated structure</span>
+      <span class="legend-item"><span class="legend-dot-b2b"></span>B2B — employer audience</span>
+    </div>
+
+    <div class="group-stack" id="pagesGrid"></div>
   </div>
 
-  <div class="group-stack" id="pagesGrid"></div>
-</div>
+  <script>
+    (function () {
+      const groups = [
+        {
+          kicker: 'Level 1',
+          title: 'Primary Pages',
+          desc: 'Top-level pages that anchor the main navigation and core site experience.',
+          pages: [
+            { name: 'Home', tag: 'Primary', sections: ['Hero', 'Trust bar / By the numbers', 'Services overview', 'Why Evensky / Differentiators', 'Our story teaser', 'Team teaser', 'Insights teaser', 'Testimonials / Press', 'Community impact callout', 'Newsletter signup', 'Contact / CTA banner', 'Footer'] },
+            { name: 'About', tag: 'Primary', sections: ['Hero', 'Our story', 'Leadership', 'Our values', 'Credentials / stats', 'Community impact', 'CTA banner'], subpages: ['Our Story', 'Our Values', 'Community Impact'] },
+            { name: 'Services', tag: 'Primary', sections: ['Hero', 'Services grid', 'Our process', 'Who we serve', 'CTA banner'], subpages: ['Investment Management', 'Retirement Planning', 'Education Funding', 'Business Transition Planning', 'Philanthropy & Giving'] },
+            { name: 'Team', tag: 'Primary', sections: ['Hero', 'Filter bar', 'Team grid'], subpages: ['Advisor Profile'] },
+            { name: 'Insights', tag: 'Primary', sections: ['Header', 'Topic filter bar', 'Featured article', 'Article grid', 'Newsletter signup', 'Pagination'], subpages: ['Article Detail'] },
+            { name: 'Events', tag: 'Primary', sections: ['Hero', 'Upcoming events', 'Past events / recordings (optional)', 'CTA banner'], subpages: ['Event Detail'] },
+            { name: 'Corporate Advantage', tag: 'Primary', distinct: true, sections: ['Hero', 'Overview / value proposition', 'Our 4D process', 'Our approach (3 pillars)', 'Tabbed content', 'Related insights', 'CTA banner'], subpages: ['Overview', 'Helping Business Owners', 'Helping Your People', 'Participant Resources'] },
+            { name: 'Contact', tag: 'Primary', sections: ['Hero', 'Office selector tabs', 'Contact form', 'Trust bar'] },
+            { name: 'Client Login', tag: 'External', external: true, sections: [] }
+          ]
+        },
+        {
+          kicker: 'Level 2',
+          title: 'Navigation Hubs',
+          desc: 'Sub-pages connected to the main navigation, shown here with the internal structures each one needs.',
+          pages: [
+            { name: 'Our Story', tag: 'Sub-page', branch: 'About', sections: ['Hero', 'Focused content body', 'Supporting proof or callouts', 'CTA banner'] },
+            { name: 'Our Values', tag: 'Sub-page', branch: 'About', sections: ['Hero', 'Focused content body', 'Supporting proof or callouts', 'CTA banner'] },
+            { name: 'Community Impact', tag: 'Sub-page', branch: 'About', sections: ['Hero', 'Focused content body', 'Supporting proof or callouts', 'CTA banner'] },
+            { name: 'Investment Management', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
+            { name: 'Retirement Planning', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
+            { name: 'Education Funding', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
+            { name: 'Business Transition Planning', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
+            { name: 'Philanthropy & Giving', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
+            { name: 'Advisor Profile', tag: 'Sub-page', branch: 'Team', sections: ['Header', 'Bio', 'Optional video intro', 'Contact CTA'] },
+            { name: 'Article Detail', tag: 'Sub-page', branch: 'Insights', sections: ['Header', 'Body', 'Author bio card', 'Related articles', 'CTA banner', 'Newsletter signup'] },
+            { name: 'Event Detail', tag: 'Sub-page', branch: 'Events', sections: ['Header', 'Description', 'Speaker(s)', 'Registration', 'Map embed (if in-person)'] },
+            { name: 'Overview', tag: 'Sub-page', branch: 'Corporate Advantage', distinct: true, sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] },
+            { name: 'Helping Business Owners', tag: 'Sub-page', branch: 'Corporate Advantage', distinct: true, sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] },
+            { name: 'Helping Your People', tag: 'Sub-page', branch: 'Corporate Advantage', distinct: true, sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] },
+            { name: 'Participant Resources', tag: 'Sub-page', branch: 'Corporate Advantage', distinct: true, sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] }
+          ]
+        },
+        {
+          kicker: 'Level 3',
+          title: 'Sub-Pages & Templates',
+          desc: 'Internal page types and repeatable structures that support the hub pages.',
+          pages: [
+            { name: 'Service Detail Template', tag: 'Template', branch: 'Services', variants: 'Used for Investment Management, Retirement Planning, Education Funding, Business Transition Planning, and Philanthropy & Giving.', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
+            { name: 'Advisor Profile Template', tag: 'Template', branch: 'Team', sections: ['Header', 'Bio', 'Optional video intro', 'Contact CTA'] },
+            { name: 'Article Detail Template', tag: 'Template', branch: 'Insights', sections: ['Header', 'Body', 'Author bio card', 'Related articles', 'CTA banner', 'Newsletter signup'] },
+            { name: 'Event Detail Template', tag: 'Template', branch: 'Events', sections: ['Header', 'Description', 'Speaker(s)', 'Registration', 'Map embed (if in-person)'] },
+            { name: 'About Sub-Pages', tag: 'Sub-pages', branch: 'About', variants: 'Our Story · Our Values · Community Impact', sections: ['Hero', 'Focused content body', 'Supporting proof or callouts', 'CTA banner'] },
+            { name: 'Corporate Advantage Sub-Pages', tag: 'Sub-pages', branch: 'Corporate Advantage', variants: 'Overview · Helping Business Owners · Helping Your People · Participant Resources', sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] }
+          ]
+        }
+      ];
 
-<script>
-(function () {
-  const groups = [
-    {
-      kicker: 'Level 1',
-      title: 'Primary Pages',
-      desc: 'Top-level pages that anchor the main navigation and core site experience.',
-      pages: [
-        { name: 'Home', tag: 'Primary', sections: ['Hero', 'Trust bar / By the numbers', 'Services overview', 'Why Evensky / Differentiators', 'Our story teaser', 'Team teaser', 'Insights teaser', 'Testimonials / Press', 'Community impact callout', 'Newsletter signup', 'Contact / CTA banner', 'Footer'] },
-        { name: 'About', tag: 'Primary', sections: ['Hero', 'Our story', 'Leadership', 'Our values', 'Credentials / stats', 'Community impact', 'CTA banner'], subpages: ['Our Story', 'Our Values', 'Community Impact'] },
-        { name: 'Services', tag: 'Primary', sections: ['Hero', 'Services grid', 'Our process', 'Who we serve', 'CTA banner'], subpages: ['Investment Management', 'Retirement Planning', 'Education Funding', 'Business Transition Planning', 'Philanthropy & Giving'] },
-        { name: 'Team', tag: 'Primary', sections: ['Hero', 'Filter bar', 'Team grid'], subpages: ['Advisor Profile'] },
-        { name: 'Insights', tag: 'Primary', sections: ['Header', 'Topic filter bar', 'Featured article', 'Article grid', 'Newsletter signup', 'Pagination'], subpages: ['Article Detail'] },
-        { name: 'Events', tag: 'Primary', sections: ['Hero', 'Upcoming events', 'Past events / recordings (optional)', 'CTA banner'], subpages: ['Event Detail'] },
-        { name: 'Corporate Advantage', tag: 'Primary', distinct: true, sections: ['Hero', 'Overview / value proposition', 'Our 4D process', 'Our approach (3 pillars)', 'Tabbed content', 'Related insights', 'CTA banner'], subpages: ['Overview', 'Helping Business Owners', 'Helping Your People', 'Participant Resources'] },
-        { name: 'Contact', tag: 'Primary', sections: ['Hero', 'Office selector tabs', 'Contact form', 'Trust bar'] },
-        { name: 'Client Login', tag: 'External', external: true, sections: [] }
-      ]
-    },
-    {
-      kicker: 'Level 2',
-      title: 'Navigation Hubs',
-      desc: 'Sub-pages connected to the main navigation, shown here with the internal structures each one needs.',
-      pages: [
-        { name: 'Our Story', tag: 'Sub-page', branch: 'About', sections: ['Hero', 'Focused content body', 'Supporting proof or callouts', 'CTA banner'] },
-        { name: 'Our Values', tag: 'Sub-page', branch: 'About', sections: ['Hero', 'Focused content body', 'Supporting proof or callouts', 'CTA banner'] },
-        { name: 'Community Impact', tag: 'Sub-page', branch: 'About', sections: ['Hero', 'Focused content body', 'Supporting proof or callouts', 'CTA banner'] },
-        { name: 'Investment Management', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
-        { name: 'Retirement Planning', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
-        { name: 'Education Funding', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
-        { name: 'Business Transition Planning', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
-        { name: 'Philanthropy & Giving', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
-        { name: 'Advisor Profile', tag: 'Sub-page', branch: 'Team', sections: ['Header', 'Bio', 'Optional video intro', 'Contact CTA'] },
-        { name: 'Article Detail', tag: 'Sub-page', branch: 'Insights', sections: ['Header', 'Body', 'Author bio card', 'Related articles', 'CTA banner', 'Newsletter signup'] },
-        { name: 'Event Detail', tag: 'Sub-page', branch: 'Events', sections: ['Header', 'Description', 'Speaker(s)', 'Registration', 'Map embed (if in-person)'] },
-        { name: 'Overview', tag: 'Sub-page', branch: 'Corporate Advantage', distinct: true, sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] },
-        { name: 'Helping Business Owners', tag: 'Sub-page', branch: 'Corporate Advantage', distinct: true, sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] },
-        { name: 'Helping Your People', tag: 'Sub-page', branch: 'Corporate Advantage', distinct: true, sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] },
-        { name: 'Participant Resources', tag: 'Sub-page', branch: 'Corporate Advantage', distinct: true, sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] }
-      ]
-    },
-    {
-      kicker: 'Level 3',
-      title: 'Sub-Pages & Templates',
-      desc: 'Internal page types and repeatable structures that support the hub pages.',
-      pages: [
-        { name: 'Service Detail Template', tag: 'Template', branch: 'Services', variants: 'Used for Investment Management, Retirement Planning, Education Funding, Business Transition Planning, and Philanthropy & Giving.', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
-        { name: 'Advisor Profile Template', tag: 'Template', branch: 'Team', sections: ['Header', 'Bio', 'Optional video intro', 'Contact CTA'] },
-        { name: 'Article Detail Template', tag: 'Template', branch: 'Insights', sections: ['Header', 'Body', 'Author bio card', 'Related articles', 'CTA banner', 'Newsletter signup'] },
-        { name: 'Event Detail Template', tag: 'Template', branch: 'Events', sections: ['Header', 'Description', 'Speaker(s)', 'Registration', 'Map embed (if in-person)'] },
-        { name: 'About Sub-Pages', tag: 'Sub-pages', branch: 'About', variants: 'Our Story · Our Values · Community Impact', sections: ['Hero', 'Focused content body', 'Supporting proof or callouts', 'CTA banner'] },
-        { name: 'Corporate Advantage Sub-Pages', tag: 'Sub-pages', branch: 'Corporate Advantage', variants: 'Overview · Helping Business Owners · Helping Your People · Participant Resources', sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] }
-      ]
+      const grid = document.getElementById('pagesGrid');
+      grid.innerHTML = groups.map((group, groupIdx) => {
+        let html = '<section class="group-block">';
+        html += '<div class="group-header">';
+        html += '<div><div class="group-kicker">' + group.kicker + '</div><h3 class="group-title">' + group.title + '</h3></div>';
+        html += '<p class="group-desc">' + group.desc + '</p>';
+        html += '</div>';
+        html += '<div class="pages-grid">';
+        html += group.pages.map((p, idx) => {
+          const num = String(groupIdx + 1) + '.' + String(idx + 1).padStart(2, '0');
+          let card = '<div class="page-card"><div class="page-card-header">';
+          card += '<span class="page-num">' + num + '</span>';
+          card += '<span class="page-tag">' + p.tag + '</span>';
+          if (p.distinct) card += '<span class="page-b2b">B2B</span>';
+          card += '</div>';
+          card += '<h3 class="page-name">' + p.name + '</h3>';
+          if (p.branch) card += '<div class="page-branch">↳ Branches from ' + p.branch + '</div>';
+          if (p.variants) card += '<div class="page-variants">' + p.variants + '</div>';
+          if (p.external) card += '<div class="page-external">External portal redirect →<br>No on-site page. Styled link/button only, in nav &amp; footer.</div>';
+          if (p.subpages && p.subpages.length) {
+            card += '<div class="subpage-list"><div class="subpage-label">Sub-pages</div>';
+            p.subpages.forEach(name => {
+              card += '<div class="subpage-item">' + name + '</div>';
+            });
+            card += '</div>';
+          }
+          if (p.sections.length) {
+            card += '<div class="page-sections">';
+            p.sections.forEach((s, i) => {
+              card += '<div class="page-section-row"><span class="section-num">' + (i + 1) + '</span><span class="dot"></span><span class="section-label">' + s + '</span></div>';
+            });
+            card += '</div>';
+          }
+          card += '</div>';
+          return card;
+        }).join('');
+        html += '</div></section>';
+        return html;
+      }).join('');
+    })();
+  </script>
+  <a href="/evk/" class="back-btn">← Hub</a>
+  <style>
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 999;
+      text-decoration: none;
+      font-family: 'Hanken Grotesk', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      background: #1b2a41;
+      padding: 8px 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(27, 42, 65, .25);
+      transition: background .15s
     }
-  ];
 
-  const grid = document.getElementById('pagesGrid');
-  grid.innerHTML = groups.map((group, groupIdx) => {
-    let html = '<section class="group-block">';
-    html += '<div class="group-header">';
-    html += '<div><div class="group-kicker">' + group.kicker + '</div><h3 class="group-title">' + group.title + '</h3></div>';
-    html += '<p class="group-desc">' + group.desc + '</p>';
-    html += '</div>';
-    html += '<div class="pages-grid">';
-    html += group.pages.map((p, idx) => {
-      const num = String(groupIdx + 1) + '.' + String(idx + 1).padStart(2, '0');
-      let card = '<div class="page-card"><div class="page-card-header">';
-      card += '<span class="page-num">' + num + '</span>';
-      card += '<span class="page-tag">' + p.tag + '</span>';
-      if (p.distinct) card += '<span class="page-b2b">B2B</span>';
-      card += '</div>';
-      card += '<h3 class="page-name">' + p.name + '</h3>';
-      if (p.branch) card += '<div class="page-branch">↳ Branches from ' + p.branch + '</div>';
-      if (p.variants) card += '<div class="page-variants">' + p.variants + '</div>';
-      if (p.external) card += '<div class="page-external">External portal redirect →<br>No on-site page. Styled link/button only, in nav &amp; footer.</div>';
-      if (p.subpages && p.subpages.length) {
-        card += '<div class="subpage-list"><div class="subpage-label">Sub-pages</div>';
-        p.subpages.forEach(name => {
-          card += '<div class="subpage-item">' + name + '</div>';
-        });
-        card += '</div>';
-      }
-      if (p.sections.length) {
-        card += '<div class="page-sections">';
-        p.sections.forEach((s, i) => {
-          card += '<div class="page-section-row"><span class="section-num">' + (i + 1) + '</span><span class="dot"></span><span class="section-label">' + s + '</span></div>';
-        });
-        card += '</div>';
-      }
-      card += '</div>';
-      return card;
-    }).join('');
-    html += '</div></section>';
-    return html;
-  }).join('');
-})();
-</script>
-<a href="/evk/" class="back-btn">← Hub</a>
-<style>.back-btn{position:fixed;bottom:20px;left:20px;z-index:999;text-decoration:none;font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:13px;font-weight:600;color:#fff;background:#1b2a41;padding:8px 16px;border-radius:8px;box-shadow:0 2px 8px rgba(27,42,65,.25);transition:background .15s}.back-btn:hover{background:#c79a52}</style>
+    .back-btn:hover {
+      background: #c79a52
+    }
+  </style>
 </body>
+
 </html>
