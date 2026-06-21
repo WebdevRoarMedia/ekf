@@ -41,6 +41,7 @@
 
   .sub-branch{margin-top:6px;margin-left:16px;padding-left:16px;position:relative}
   .sub-branch::before{content:'';position:absolute;left:0;top:0;bottom:12px;width:1.5px}
+  .sub-branch::after{content:'';position:absolute;left:-16px;top:26px;width:16px;height:1.5px}
   .sub-branch .page-node::before{content:'';position:absolute;left:-17px;top:50%;width:16px;height:1.5px;transform:translateY(-50%)}
 
   .external-note{margin-top:8px;padding:10px 12px;background:rgba(27,42,65,.03);border:1.5px dashed rgba(27,42,65,.22);border-radius:8px;font-size:11px;line-height:1.45;color:rgba(27,42,65,.55);max-width:150px;white-space:normal}
@@ -54,53 +55,62 @@
   .c-red    .branch-head{border-color:#e06b5e;color:#c0473a}
   .c-red    .page-node{border-color:#e06b5e;color:#c0473a}
   .c-red    .section-leaf::before{background:#e06b5e}
+  .c-red    .sub-branch::after{background:#e06b5e}
   .c-red    .sub-branch .page-node::before{background:#e06b5e}
   .c-red    .trunk,.c-red .sub-branch::before{background:#e06b5e}
 
   .c-orange .branch-head{border-color:#e8a04c;color:#b87a24}
   .c-orange .page-node{border-color:#e8a04c;color:#b87a24}
   .c-orange .section-leaf::before{background:#e8a04c}
+  .c-orange .sub-branch::after{background:#e8a04c}
   .c-orange .sub-branch .page-node::before{background:#e8a04c}
   .c-orange .trunk,.c-orange .sub-branch::before{background:#e8a04c}
 
   .c-gold   .branch-head{border-color:#c79a52;color:#9e7530}
   .c-gold   .page-node{border-color:#c79a52;color:#9e7530}
   .c-gold   .section-leaf::before{background:#c79a52}
+  .c-gold   .sub-branch::after{background:#c79a52}
   .c-gold   .sub-branch .page-node::before{background:#c79a52}
   .c-gold   .trunk,.c-gold .sub-branch::before{background:#c79a52}
 
   .c-green  .branch-head{border-color:#5da87a;color:#3d7a55}
   .c-green  .page-node{border-color:#5da87a;color:#3d7a55}
   .c-green  .section-leaf::before{background:#5da87a}
+  .c-green  .sub-branch::after{background:#5da87a}
   .c-green  .sub-branch .page-node::before{background:#5da87a}
   .c-green  .trunk,.c-green .sub-branch::before{background:#5da87a}
 
   .c-teal   .branch-head{border-color:#4a9ea8;color:#2e7a83}
   .c-teal   .page-node{border-color:#4a9ea8;color:#2e7a83}
   .c-teal   .section-leaf::before{background:#4a9ea8}
+  .c-teal   .sub-branch::after{background:#4a9ea8}
   .c-teal   .sub-branch .page-node::before{background:#4a9ea8}
   .c-teal   .trunk,.c-teal .sub-branch::before{background:#4a9ea8}
 
   .c-blue   .branch-head{border-color:#5b82c7;color:#3b5fa0}
   .c-blue   .page-node{border-color:#5b82c7;color:#3b5fa0}
   .c-blue   .section-leaf::before{background:#5b82c7}
+  .c-blue   .sub-branch::after{background:#5b82c7}
   .c-blue   .sub-branch .page-node::before{background:#5b82c7}
   .c-blue   .trunk,.c-blue .sub-branch::before{background:#5b82c7}
 
   .c-navy   .branch-head{border-color:#1b2a41;color:#1b2a41;background:rgba(27,42,65,.06)}
   .c-navy   .page-node{border-color:#1b2a41;color:#1b2a41}
   .c-navy   .section-leaf::before{background:#1b2a41}
+  .c-navy   .sub-branch::after{background:#1b2a41}
   .c-navy   .sub-branch .page-node::before{background:#1b2a41}
   .c-navy   .trunk,.c-navy .sub-branch::before{background:#1b2a41}
 
   .c-purple .branch-head{border-color:#8b6fbf;color:#6b4fa0}
   .c-purple .page-node{border-color:#8b6fbf;color:#6b4fa0}
   .c-purple .section-leaf::before{background:#8b6fbf}
+  .c-purple .sub-branch::after{background:#8b6fbf}
   .c-purple .sub-branch .page-node::before{background:#8b6fbf}
   .c-purple .trunk,.c-purple .sub-branch::before{background:#8b6fbf}
 
   .c-gray   .branch-head{border-color:#999;color:#666}
   .c-gray   .page-node{border-color:#999;color:#666}
+  .c-gray   .sub-branch::after{background:#999}
   .c-gray   .sub-branch .page-node::before{background:#999}
   .c-gray   .trunk,.c-gray .sub-branch::before{background:#999}
 
