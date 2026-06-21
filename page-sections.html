@@ -78,6 +78,11 @@
       pages: [
         { name: 'Home', tag: 'Primary', sections: ['Hero', 'Trust bar / By the numbers', 'Services overview', 'Why Evensky / Differentiators', 'Our story teaser', 'Team teaser', 'Insights teaser', 'Testimonials / Press', 'Community impact callout', 'Newsletter signup', 'Contact / CTA banner', 'Footer'] },
         { name: 'About', tag: 'Primary', sections: ['Hero', 'Our story', 'Leadership', 'Our values', 'Credentials / stats', 'Community impact', 'CTA banner'], subpages: ['Our Story', 'Our Values', 'Community Impact'] },
+        { name: 'Services', tag: 'Primary', sections: ['Hero', 'Services grid', 'Our process', 'Who we serve', 'CTA banner'], subpages: ['Investment Management', 'Retirement Planning', 'Education Funding', 'Business Transition Planning', 'Philanthropy & Giving'] },
+        { name: 'Team', tag: 'Primary', sections: ['Hero', 'Filter bar', 'Team grid'], subpages: ['Advisor Profile'] },
+        { name: 'Insights', tag: 'Primary', sections: ['Header', 'Topic filter bar', 'Featured article', 'Article grid', 'Newsletter signup', 'Pagination'], subpages: ['Article Detail'] },
+        { name: 'Events', tag: 'Primary', sections: ['Hero', 'Upcoming events', 'Past events / recordings (optional)', 'CTA banner'], subpages: ['Event Detail'] },
+        { name: 'Corporate Advantage', tag: 'Primary', distinct: true, sections: ['Hero', 'Overview / value proposition', 'Our 4D process', 'Our approach (3 pillars)', 'Tabbed content', 'Related insights', 'CTA banner'], subpages: ['Overview', 'Helping Business Owners', 'Helping Your People', 'Participant Resources'] },
         { name: 'Contact', tag: 'Primary', sections: ['Hero', 'Office selector tabs', 'Contact form', 'Trust bar'] },
         { name: 'Client Login', tag: 'External', external: true, sections: [] }
       ]
@@ -85,13 +90,23 @@
     {
       kicker: 'Level 2',
       title: 'Navigation Hubs',
-      desc: 'Primary hub pages that branch into deeper content areas or repeatable page types.',
+      desc: 'Sub-pages connected to the main navigation, shown here with the internal structures each one needs.',
       pages: [
-        { name: 'Services', tag: 'Hub', sections: ['Hero', 'Services grid', 'Our process', 'Who we serve', 'CTA banner'], subpages: ['Investment Management', 'Retirement Planning', 'Education Funding', 'Business Transition Planning', 'Philanthropy & Giving'] },
-        { name: 'Team', tag: 'Directory', sections: ['Hero', 'Filter bar', 'Team grid'], subpages: ['Advisor Profile'] },
-        { name: 'Insights', tag: 'Hub', sections: ['Header', 'Topic filter bar', 'Featured article', 'Article grid', 'Newsletter signup', 'Pagination'], subpages: ['Article Detail'] },
-        { name: 'Events', tag: 'Hub', sections: ['Hero', 'Upcoming events', 'Past events / recordings (optional)', 'CTA banner'], subpages: ['Event Detail'] },
-        { name: 'Corporate Advantage', tag: 'Hub', distinct: true, sections: ['Hero', 'Overview / value proposition', 'Our 4D process', 'Our approach (3 pillars)', 'Tabbed content', 'Related insights', 'CTA banner'], subpages: ['Overview', 'Helping Business Owners', 'Helping Your People', 'Participant Resources'] }
+        { name: 'Our Story', tag: 'Sub-page', branch: 'About', sections: ['Hero', 'Focused content body', 'Supporting proof or callouts', 'CTA banner'] },
+        { name: 'Our Values', tag: 'Sub-page', branch: 'About', sections: ['Hero', 'Focused content body', 'Supporting proof or callouts', 'CTA banner'] },
+        { name: 'Community Impact', tag: 'Sub-page', branch: 'About', sections: ['Hero', 'Focused content body', 'Supporting proof or callouts', 'CTA banner'] },
+        { name: 'Investment Management', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
+        { name: 'Retirement Planning', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
+        { name: 'Education Funding', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
+        { name: 'Business Transition Planning', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
+        { name: 'Philanthropy & Giving', tag: 'Sub-page', branch: 'Services', sections: ['Hero', 'Overview', "What's included", 'Related insights', 'Advisor spotlight (optional)', 'CTA banner'] },
+        { name: 'Advisor Profile', tag: 'Sub-page', branch: 'Team', sections: ['Header', 'Bio', 'Optional video intro', 'Contact CTA'] },
+        { name: 'Article Detail', tag: 'Sub-page', branch: 'Insights', sections: ['Header', 'Body', 'Author bio card', 'Related articles', 'CTA banner', 'Newsletter signup'] },
+        { name: 'Event Detail', tag: 'Sub-page', branch: 'Events', sections: ['Header', 'Description', 'Speaker(s)', 'Registration', 'Map embed (if in-person)'] },
+        { name: 'Overview', tag: 'Sub-page', branch: 'Corporate Advantage', distinct: true, sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] },
+        { name: 'Helping Business Owners', tag: 'Sub-page', branch: 'Corporate Advantage', distinct: true, sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] },
+        { name: 'Helping Your People', tag: 'Sub-page', branch: 'Corporate Advantage', distinct: true, sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] },
+        { name: 'Participant Resources', tag: 'Sub-page', branch: 'Corporate Advantage', distinct: true, sections: ['Hero', 'Audience-specific value proposition', 'Key resources or benefits', 'Supporting content modules', 'CTA banner'] }
       ]
     },
     {
